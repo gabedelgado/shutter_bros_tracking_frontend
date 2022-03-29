@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import OrderView from "./OrderView"
 import {get} from "../http/service"
 import {useState} from "react"
-const AdminHome = () => {
+const AdminHome = ({admin}) => {
     const [orders, setOrders] = useState([])
     
     useEffect(() => {
@@ -12,8 +12,8 @@ const AdminHome = () => {
     }, [])
     
     return (
-        <div>
-            {orders.map(order => <OrderView key={order._id} order={order}/>)}
+        <div className="row lg:mx-10">
+            {orders.map(order => <OrderView key={order._id.$oid} order={order} className="col" admin={admin}/>)}
         </div>
     )
 }

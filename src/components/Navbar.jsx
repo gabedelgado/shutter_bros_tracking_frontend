@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // taken from free tailwind starter kit by creative-tim
 //CONNECT THE LINKS TO THE CORRECT PAGES
-export default function Navbar({ fixed }) {
+export default function Navbar({ admin, setAdmin }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -11,7 +11,6 @@ export default function Navbar({ fixed }) {
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <div
               className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-              href="#pablo"
             >
               <Link to="/">Shutter Brothers Tracking</Link> 
             </div>
@@ -38,14 +37,13 @@ export default function Navbar({ fixed }) {
                   <Link className="ml-2" to="/">Track Your Order</Link>
                 </div>
               </li>
-              <li className="nav-item">
+             {!admin && <li className="nav-item">
                 <div
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
                 >
                   <Link className="ml-2" to="/login">Administrator Login</Link>
                 </div>
-              </li>
+              </li>}
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
@@ -54,6 +52,13 @@ export default function Navbar({ fixed }) {
                     <span className="ml-2">Back to Main Site</span>
                 </a>
               </li>
+             {admin && <li className="nav-item">
+                <div
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                >
+                  <Link className="ml-2" to="/admin/all">Administrator Home</Link>
+                </div>
+              </li>}
             </ul>
           </div>
         </div>
