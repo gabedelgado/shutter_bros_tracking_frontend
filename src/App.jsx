@@ -7,6 +7,7 @@ import LoginBox from './components/LoginBox';
 import AdminHome from './components/AdminHome';
 import { useEffect, useState } from 'react';
 import { post } from "./http/service"
+import AdminEditOrder from './components/AdminEditOrder';
 
 function App() {
   const [admin, setAdmin] = useState(false)
@@ -28,8 +29,8 @@ function App() {
         <Route path="/order/:orderNumber" element={<CustomerOrder/>}/>
         <Route path="/admin/all" element={<AdminHome admin={admin}/>}/>
         <Route path="/login" element={<LoginBox admin={admin} setAdmin={setAdmin}/>}/>
-
-      </Routes>
+        <Route path="/admin/edit/:orderNumber" element={<AdminEditOrder admin={admin}/>}/>
+        </Routes>
     </div>
   );
 }

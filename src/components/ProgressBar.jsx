@@ -1,6 +1,6 @@
 
 const ProgressBar = ({percentage}) => {
-    console.log(percentage)
+    // console.log(percentage)
     return (
         <div className="relative pt-1">
             <div className="overflow-hidden h-3 mb-4 text-xs flex rounded bg-blue-200">

@@ -1,12 +1,12 @@
 import ProgressBar from "./ProgressBar"
-
+import { useNavigate } from "react-router-dom"
 const OrderView = ({order, admin}) => {
     const tracking = ["Pending", "Final Measurements Taken", "Order Placed", "Products being Fabricated", "Order Shipped to Shutter Brothers", "Order Received at Shutter Brothers", "Quality Control Inspection", "Products Ready to be Installed", "Installaion Complete"]
     const permit = ["Pending", "Documents Signed", "Submitted", "County Review", "Revisions", "Permit Issued"]
-    
+    const navigate = useNavigate()
     return (
         <div className=" border-2 rounded-lg text-left w-[90vw] lg:w-[40vw] m-auto p-4 mt-3 mb-3 relative">
-            {admin && <div className=" absolute top-4 right-4 hover:cursor-pointer"><i className="fas fa-edit" onClick={()=> console.log("edit")}></i></div>}
+            {admin && <div className=" absolute top-4 right-4 hover:cursor-pointer"><i className="fas fa-edit" onClick={()=> navigate(`/admin/edit/${order.orderNumber}`)}></i></div>}
             
             <p className="text-lg lg:text-2xl"><strong>Tracking Number:</strong> {order.orderNumber}</p>
             <p className="text-lg"> {order.customerName}</p>
