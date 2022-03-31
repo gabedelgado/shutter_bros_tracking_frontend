@@ -8,6 +8,7 @@ import AdminHome from './components/AdminHome';
 import { useEffect, useState } from 'react';
 import { post } from "./http/service"
 import AdminEditOrder from './components/AdminEditOrder';
+import NewUser from './components/NewUser';
 
 function App() {
   const [admin, setAdmin] = useState(false)
@@ -25,12 +26,13 @@ function App() {
       <Navbar admin={admin} setAdmin={setAdmin}></Navbar>
       <Routes>
         <Route path="/" element={<Home/>}/> 
-        {/* search order */}
         <Route path="/order/:orderNumber" element={<CustomerOrder/>}/>
         <Route path="/admin/all" element={<AdminHome admin={admin}/>}/>
         <Route path="/login" element={<LoginBox admin={admin} setAdmin={setAdmin}/>}/>
         <Route path="/admin/edit/:orderNumber" element={<AdminEditOrder admin={admin}/>}/>
-        </Routes>
+        <Route path="/admin/newUser" element={<NewUser />}/>
+        {/* <Route path="/admin/manualEntry" element={<NewOrder />}/> */}
+      </Routes>
     </div>
   );
 }
