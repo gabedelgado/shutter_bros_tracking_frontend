@@ -8,11 +8,13 @@ const AdminHome = ({admin}) => {
     const [orders, setOrders] = useState([])
     const [searchText, setSearchText] = useState("")
     const [viewOrders, setViewOrders] = useState([])
+    const [dataLoaded, setDataLoaded] = useState(false)
 
     useEffect(() => {
         get("/order/all").then(results => {
             setOrders(results.data)
             setViewOrders(results.data)
+            setDataLoaded(true)
         })
     }, [])
 
@@ -28,9 +30,11 @@ const AdminHome = ({admin}) => {
     return (
         <div>
             <AdminNav searchText={searchText} setSearchText={setSearchText}/>
-            <div className="row lg:mx-10">
+            {dataLoaded ? <div className="row lg:mx-10">
                 {viewOrders.map(order => <OrderView key={order._id.$oid} order={order} className="col" admin={admin}/>)}
-            </div>
+            </div> :
+            <div className="mx-10 flex justify-center items-center mt-[10vh]"><div><p className="text-lg">Loading orders...</p></div></div>
+            }
         </div>
     )
 }

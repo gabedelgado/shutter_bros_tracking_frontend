@@ -19,10 +19,14 @@ const CustomerOrder = () => {
         <div className="mt-[15vh]">
 
             
-            {order === false ? <div>
-                <p className="pt-[10vh] mx-[3vh] text-lg lg:text-2xl mb-2">Sorry, we couldn't find an order with that tracking number. Please try again.</p>
-            <Button onClickFunc={() => navigate("/")} text="Track Order" />
-            </div> : order === null ? <p>Loading your order information...</p> : <OrderView order={order}/>}
+            {order === false ? <div className="flex justify-center items-center flex-col w-[95vw] mx-auto">
+                <div>
+                    <p className="pt-[10vh] mx-[3vh] text-lg lg:text-2xl mb-2 text-center">Sorry, we couldn't find an order with that tracking number. Please try again.</p>
+                </div>
+                <div>
+                    <Button onClickFunc={() => navigate("/")} text="Track Order" />
+                </div>
+            </div> : order === null ? <p className="text-center">Loading your order information...</p> : <OrderView order={order}/>}
         </div>
     )
 }
