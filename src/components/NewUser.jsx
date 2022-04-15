@@ -17,7 +17,7 @@ const NewUser = () => {
     return (
         <div className="w-[75vw] lg:w-[30vw] mx-auto flex flex-col mt-[15vh] lg:mt-[20vh]">
             {userCreated ? <p>User successfully created. They can now login on their device.</p> : <div>
-                <h1 className=" font-bold lg:text-3xl text-xl mb-3">Create New User</h1>
+                <h1 className=" font-bold lg:text-3xl text-xl mb-3 text-center">Create New User</h1>
                 
                 <form>
                     {error && <p className=" text-red-700 mb-1">{error}</p>}

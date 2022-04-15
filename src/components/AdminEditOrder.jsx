@@ -28,7 +28,7 @@ const AdminEditOrder = ({admin}) => {
         get(`/order/${orderNumber}`).then(results => {
             // this is an awful way to do this, but I was too deep, should come back and think of a better way going back to backend
             const permitDisplayOptions = ["Pending", "Documents Signed", "Submitted", "County Review", "Revisions", "Permit Issued"]
-            const trackingDisplayOptions = ["Pending", "Final Measurements Taken", "Order Placed", "Products being Fabricated", "Order Shipped to Shutter Brothers", "Order Received at Shutter Brothers", "Quality Control Inspection", "Products Ready to be Installed", "Installaion Complete"]
+            const trackingDisplayOptions = ["Pending", "Final Measurements Taken", "Order Placed", "Products being Fabricated", "Order Shipped to Shutter Brothers", "Order Received at Shutter Brothers", "Quality Control Inspection", "Products Ready to be Installed", "Installation Complete"]
             const permitOptions = ["PENDING", "DOCUMENTSSIGNED", "SUBMITTED", "COUNTYREVIEW", "REVISIONS", "PERMITISSUED"]
             const trackingOptions = ["PENDING", "FINALMEASUREMENTSTAKEN", "ORDERPLACED", "PRODUCTSBEINGFABRICATED", "ORDERSHIPPED", "ORDERRECEIVED", "QUALITYCONTROLINSPECTION", "READYTOINSTALL", "INSTALLATIONCOMPLETE"]
             
@@ -64,7 +64,7 @@ const AdminEditOrder = ({admin}) => {
                     <option value="ORDERRECEIVED" >Order Received at Shutter Brothers</option>
                     <option value="QUALITYCONTROLINSPECTION" >Quality Control Inspection</option>
                     <option value="READYTOINSTALL" >Products Ready to be Installed</option>
-                    <option value="INSTALLATIONCOMPLETE" >Installaion Complete</option>
+                    <option value="INSTALLATIONCOMPLETE" >Installation Complete</option>
                 </select>
             </div> : <p className="text-lg mt-[15vh]">Loading order...</p>}
             {/* select for tracking status */}

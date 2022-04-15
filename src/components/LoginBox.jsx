@@ -23,13 +23,13 @@ const LoginBox = ({admin, setAdmin}) => {
     
     return (
         <div className="w-[75vw] lg:w-[30vw] mx-auto flex flex-col mt-[25vh]">
-            <h1 className=" font-bold lg:text-3xl text-xl mb-3">Administrator Login</h1>
-            <form>
+            <h1 className=" font-bold lg:text-3xl text-xl mb-3 text-center">Administrator Login</h1>
+            
                 {error && <p className=" text-red-700 mb-1">Username or Password was incorrect, please try again</p>}
                 <Input placeholder="Username" text={username} setText={setUsername}/>
                 <Input placeholder="Password" text={password} setText={setPassword}/>
-                <Button text="Login" className=" self-end" onClickFunc={(e) => login(e)}/>
-            </form>
+                <div className=" self-end"><Button text="Login" onClickFunc={(e) => login(e)}/></div>
+            
         </div>
     )
 }
