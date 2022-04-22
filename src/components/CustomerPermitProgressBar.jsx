@@ -1,9 +1,7 @@
 import ProgressBar from "./ProgressBar"
 import CircledCheck from "./CircledCheck"
-import LineTo from "react-lineto"
 
 const CustomerPermitProgressBar = ({step, options}) => {
-    // const permit = ["Pending", "Documents Signed", "Submitted", "County Review", "Revisions", "Permit Issued"]
 
     return (
         <div className="relative mb-24">
