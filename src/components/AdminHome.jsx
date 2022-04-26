@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import OrderView from "./OrderView"
+import AdminOrderView from "./AdminOrderView"
 import {get} from "../http/service"
 import {useState} from "react"
 import AdminNav from "./AdminNav"
@@ -31,7 +31,7 @@ const AdminHome = ({admin}) => {
         <div>
             <AdminNav searchText={searchText} setSearchText={setSearchText}/>
             {dataLoaded ? <div className="row lg:mx-10">
-                {viewOrders.map(order => <OrderView key={order._id.$oid} order={order} className="col" admin={admin}/>)}
+                {viewOrders.map(order => <AdminOrderView key={order._id.$oid} order={order} className="col" admin={admin}/>)}
             </div> :
             <div className="mx-10 flex justify-center items-center mt-[10vh]"><div><p className="text-lg">Loading orders...</p></div></div>
             }

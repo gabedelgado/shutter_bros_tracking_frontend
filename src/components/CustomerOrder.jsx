@@ -16,7 +16,7 @@ const CustomerOrder = () => {
     }, [orderNumber])
 
     return (
-        <div className="mt-[15vh]">
+        <div className="mt-5 lg:mt-20">
 
             
             {order === false ? <div className="flex justify-center items-center flex-col w-[95vw] mx-auto">
