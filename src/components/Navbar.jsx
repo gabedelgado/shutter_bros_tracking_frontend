@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import sblogo from "../images/shutterBrothersLogoTransparent.png"
 // taken from free tailwind starter kit by creative-tim
 //CONNECT THE LINKS TO THE CORRECT PAGES
 export default function Navbar({ admin, setAdmin }) {
@@ -10,9 +11,9 @@ export default function Navbar({ admin, setAdmin }) {
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <div
-              className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+              className="text-sm font-bold leading-relaxed inline-block mr-4 whitespace-nowrap uppercase text-white"
             >
-              <Link onClick={() => {setNavbarOpen(false)}} to="/">Shutter Brothers Tracking</Link> 
+              <Link onClick={() => {setNavbarOpen(false)}} to="/"><img className="h-14" src={sblogo} alt="shutter_bros_logo" /></Link> 
             </div>
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
