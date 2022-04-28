@@ -10,6 +10,7 @@ const AdminOrderView = ({order, admin}) => {
             
             <p className="text-lg lg:text-2xl"><strong>Tracking Number:</strong> {order.orderNumber}</p>
             <p className="text-lg"> {order.customerName}</p>
+            <p className="text-lg">{order.phoneNumber ? order.phoneNumber : "No phone number added"}</p>
             <p className="text-md lg:text-lg">{order.jobAddress}</p>
             <p className="mt-4"><strong>Permit Status:</strong> {order.permitStatus}</p>
             <ProgressBar percentage={Math.floor(((permit.indexOf(String(order.permitStatus))) / (permit.length - 1)) * 100)}/>

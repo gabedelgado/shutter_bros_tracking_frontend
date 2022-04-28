@@ -10,13 +10,17 @@ const AdminEditOrder = ({admin}) => {
     const [jobAddress, setJobAddress] = useState("")
     const [permit, setPermit] = useState("")
     const [tracking, setTracking] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
     const {orderNumber} = useParams()
     const [updated, setUpdated] = useState(false)
     const [areYouSure, setAreYouSure] = useState(false)
+    const [textUpdates, setTextUpdates] = useState(false)
+
     const navigate = useNavigate()
+
     const updateOrder = useCallback(() => {
-        post(`/order/update/${orderNumber}`, {customerName, jobAddress, tracking, permit}).then(results => setUpdated(true))
-    }, [customerName, jobAddress, tracking, permit, orderNumber])
+        post(`/order/update/${orderNumber}`, {customerName, jobAddress, tracking, permit, phoneNumber, textUpdates}).then(results => setUpdated(true))
+    }, [customerName, jobAddress, tracking, permit, orderNumber, phoneNumber, textUpdates])
 
     const deleteOrder = useCallback(() => {
         post(`/order/delete/${orderNumber}`).then(results => {
@@ -37,6 +41,8 @@ const AdminEditOrder = ({admin}) => {
             setJobAddress(results.data.jobAddress)
             setTracking(trackingOptions[trackingDisplayOptions.indexOf(results.data.trackingStatus)])
             setPermit(permitOptions[permitDisplayOptions.indexOf(results.data.permitStatus)])
+            setPhoneNumber(results.data.phoneNumber ? results.data.phoneNumber : "")
+            setTextUpdates(results.data.textUpdates)
         })
     }, [orderNumber])
 
@@ -47,6 +53,11 @@ const AdminEditOrder = ({admin}) => {
                 <p className="text-lg lg:text-2xl mb-2"><strong>EDITING:</strong> {order.orderNumber}</p>
                 <Input text={customerName} setText={setCustomerName} placeholder={"Customer Name"}/>
                 <Input text={jobAddress} setText={setJobAddress} placeholder={"Job Address"}/>
+                <Input text={phoneNumber} setText={setPhoneNumber} placeholder={"Phone Number"}/>
+                <div className="flex items-center mb-3">
+                    <input className="h-6 w-6" type="checkbox" checked={textUpdates} onChange={() => setTextUpdates(!textUpdates)} />
+                    <p className="text-lg lg:text-xl ml-2">Text Updates</p>
+                </div>
                 <select className=" w-[100%] h-12 p-2 mb-3 rounded-md" value={permit} onChange={(e) => setPermit(e.target.value)}>
                     <option value="PENDING">Pending</option>
                     <option value="DOCUMENTSSIGNED">Documents Signed</option>
